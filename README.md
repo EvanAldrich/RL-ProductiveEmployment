@@ -68,31 +68,30 @@ Here is your LaTeX code fully converted into **Markdown** with math formatting p
 ## Helper Functions
 
 ### Daily Pay Function
-\usepackage{amsmath}
 
 The daily pay \$P\_{\text{daily}}\$ is drawn from a uniform distribution between a minimum and maximum value:
 
 $$
-P_{\text{daily}} \sim U(\text{min\_pay}, \text{max\_pay})
+P_{\text{daily}} \sim U(\text{min pay}, \text{max pay})
 $$
 
 Where:
 
-* \$\text{min\_pay}\$ is the minimum daily pay.
-* \$\text{max\_pay}\$ is the maximum daily pay.
+* \$\text{min pay}\$ is the minimum daily pay.
+* \$\text{max pay}\$ is the maximum daily pay.
 
 ### Degree of Theft Function
 
-The degree of theft \$\delta\_T\$ is a random fraction of the potential theft amount, determined by a probability parameter:
+The degree of theft \$\delta_T\$ is a random fraction of the potential theft amount, determined by a probability parameter:
 
 $$
-\delta_T = R \cdot P_{\text{theft\_degree}}
+\delta_T = R \cdot P_{\text{theft degree}}
 $$
 
 Where:
 
 * \$R\$ is a random number such that \$R \in \[0, 1)\$.
-* \$P\_{\text{theft\_degree}}\$ is the maximum proportional degree of theft (e.g., `propDegreeTheft`).
+* \$P\_{\text{theft degree}}\$ is the maximum proportional degree of theft (e.g., `propDegreeTheft`).
 
 ## Custom Environment Dynamics
 
@@ -106,7 +105,7 @@ Let:
 * \$P\_{\text{min}}\$, \$P\_{\text{max}}\$ be the min/max daily pay
 * \$M\$ be the employer's markup (`self.Markup`)
 * \$\delta\_T\$ be the degree of theft
-* \$P\_{\text{report\_success}}\$ be the probability of successful report
+* \$P\_{\text{report success}}\$ be the probability of successful report
 * \$E\_{PS}\$ be expected pain and suffering
 * \$E\_{DI}\$ be expected days idle
 
@@ -146,7 +145,7 @@ $$
 
 Let \$P\_{\text{daily}} \sim U(P\_{\text{min}}, P\_{\text{max}})\$.
 
-If \$\text{rand}() \le P\_{\text{report\_success}}\$:
+If \$\text{rand}() \le P\_{\text{report success}}\$:
 
 $$
 r_1 = (P_{\text{daily}} \cdot \delta_T) + E_{PS} \\
