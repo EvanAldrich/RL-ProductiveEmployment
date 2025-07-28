@@ -321,16 +321,16 @@ Convergence for a Q-value pair $Q(s, a)$ over iterations is assessed by analyzin
 - **Mean Absolute Change**:The average of the absolute differences between consecutive Q-values within the window. Convergence is indicated when this value falls below a threshold $\tau_{\text{mean}}$.
 
 
-$$\text{MeanChange}_t = \frac{1}{W} \sum_{k=t}^{t+W-1} |Q_k(s, a) - Q_{k-1}(s, a)| < \tau_{\text{mean}}$$
+$\text{MeanChange}_t = \frac{1}{W} \sum_{k=t}^{t+W-1} |Q_k(s, a) - Q_{k-1}(s, a)| < \tau_{\text{mean}}$
 
 
 - **Variance of Change**: The variance of the absolute differences between consecutive Q-values within the window. Convergence is indicated when this value falls below a threshold $\tau_{\text{var}}$.
 
-$$\text{VarChange}_t = \text{Var}(\{|Q_k(s, a) - Q_{k-1}(s, a)|\}_{k=t}^{t+W-1}) < \tau_{\text{var}}$$
+$\text{VarChange}_t = \text{Var}(\{|Q_k(s, a) - Q_{k-1}(s, a)|\}_{k=t}^{t+W-1}) < \tau_{\text{var}}$
 
 - **Percentage Stable**: The percentage of Q-value changes within the window that are below a small stability threshold $\tau_{\text{stable}}$. Convergence is indicated when this percentage exceeds a high value (e.g., 95\%).
 
-$$\text{PercStable}_t = \frac{\sum_{k=t}^{t+W-1} \mathbb{I}(|Q_k(s, a) - Q_{k-1}(s, a)| < \tau_{\text{stable}})}{W} > 0.95$$
+$\text{PercStable}_t = \frac{\sum_{k=t}^{t+W-1} \mathbb{I}(|Q_k(s, a) - Q_{k-1}(s, a)| < \tau_{\text{stable}})}{W} > 0.95$
 
 Where $\mathbb{I}(\cdot)$ is the indicator function.
 ---
