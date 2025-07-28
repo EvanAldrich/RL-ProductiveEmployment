@@ -69,9 +69,7 @@ agent_type = MULTI_AGENT  # Set to SINGLE_AGENT or MULTI_AGENT
 
 The daily pay $P_{\text{daily}}$ is drawn from a uniform distribution between a minimum and maximum value:
 
-$$
-P_{\text{daily}} \sim U(\text{min\_pay}, \text{max\_pay})
-$$
+$$P_{\text{daily}} \sim U(\text{min\_pay}, \text{max\_pay})$$
 
 Where:
 
