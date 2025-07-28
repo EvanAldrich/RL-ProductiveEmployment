@@ -322,7 +322,7 @@ Convergence for a Q-value pair $Q(s, a)$ over iterations is assessed by analyzin
 
 
 $$
-\text{MeanChange}_t = \frac{1}{W} \sum_{k=t}^{t+W-1} |Q_k(s, a) - Q_{k-1}(s, a)| < \tau_{\text{mean}}
+\text{MeanChange}\_t = \frac{1}{W} \sum\_{k=t}^{t+W-1} |Q\_k(s, a) - Q\_{k-1}(s, a)| < \tau\_{\text{mean}}
 $$
 
 
