@@ -68,6 +68,7 @@ Here is your LaTeX code fully converted into **Markdown** with math formatting p
 ## Helper Functions
 
 ### Daily Pay Function
+\usepackage{amsmath}
 
 The daily pay \$P\_{\text{daily}}\$ is drawn from a uniform distribution between a minimum and maximum value:
 
@@ -202,7 +203,7 @@ Else:
 
 Let \$P\_{\text{daily}} \sim U(P\_{\text{min}}, P\_{\text{max}})\$.
 
-If \$\text{rand}() \le P\_{\text{report\_success}}\$:
+If \$\text{rand}() \le P\_{\text{report success}}\$:
 
 $$
 r = (P_{\text{daily}} \cdot \delta_T) + E_{PS}
@@ -287,8 +288,8 @@ Where:
 Decay rules:
 
 $$
-\alpha \leftarrow \max(\alpha_{\text{min}}, \alpha \cdot \text{decay\_rate}) \\
-\epsilon \leftarrow \max(\epsilon_{\text{min}}, \epsilon \cdot \text{decay\_rate})
+\alpha \leftarrow \max(\alpha_{\text{min}}, \alpha \cdot \text{decay rate}) \\
+\epsilon \leftarrow \max(\epsilon_{\text{min}}, \epsilon \cdot \text{decay rate})
 $$
 
 ## Convergence Analysis
