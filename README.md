@@ -59,26 +59,30 @@ agent_type = MULTI_AGENT  # Set to SINGLE_AGENT or MULTI_AGENT
 
 - [`S1_file.py`](c:/Users/Evan/Documents/GitHub/RL-ProductiveEmployment/S1_file.py): Main simulation code, including environment, Q-learning, and plotting routines.
 
+Here is your LaTeX code fully converted into **Markdown** with math formatting preserved using `$$` for display math and `$` for inline math:
+
 ---
 
-# Python Workflow
+# Python Workflow.
 
 ## Helper Functions
 
 ### Daily Pay Function
 
-The daily pay $P_{\text{daily}}$ is drawn from a uniform distribution between a minimum and maximum value:
+The daily pay \$P\_{\text{daily}}\$ is drawn from a uniform distribution between a minimum and maximum value:
 
-$$P_{\text{daily}} \sim U(\text{min\_pay}, \text{max\_pay})$$
+$$
+P_{\text{daily}} \sim U(\text{min\_pay}, \text{max\_pay})
+$$
 
 Where:
 
-- $\text{min\_pay}$ is the minimum daily pay.
-- $\text{max\_pay}$ is the maximum daily pay.
+* \$\text{min\_pay}\$ is the minimum daily pay.
+* \$\text{max\_pay}\$ is the maximum daily pay.
 
 ### Degree of Theft Function
 
-The degree of theft $\delta_T$ is a random fraction of the potential theft amount, determined by a probability parameter:
+The degree of theft \$\delta\_T\$ is a random fraction of the potential theft amount, determined by a probability parameter:
 
 $$
 \delta_T = R \cdot P_{\text{theft\_degree}}
@@ -86,24 +90,24 @@ $$
 
 Where:
 
-- $R$ is a random number such that $R \in [0, 1)$.
-- $P_{\text{theft\_degree}}$ is the maximum proportional degree of theft (e.g., `propDegreeTheft`).
+* \$R\$ is a random number such that \$R \in \[0, 1)\$.
+* \$P\_{\text{theft\_degree}}\$ is the maximum proportional degree of theft (e.g., `propDegreeTheft`).
 
 ## Custom Environment Dynamics
 
-The environment transitions from a state $s$ to a next state $s'$ after an action $a$ is taken, yielding a reward $r$. In the multi-agent setting, two rewards are generated: $r_1$ for the Laborer and $r_2$ for the Employer.
+The environment transitions from a state \$s\$ to a next state \$s'\$ after an action \$a\$ is taken, yielding a reward \$r\$. In the multi-agent setting, two rewards are generated: \$r\_1\$ for the Laborer and \$r\_2\$ for the Employer.
 
 ### Multi-Agent Environment Rewards (`stepGAME`)
 
 Let:
 
-- $C$ be the cost of being idle (`self.cost`)
-- $P_{\text{min}}$, $P_{\text{max}}$ be the min/max daily pay
-- $M$ be the employer's markup (`self.Markup`)
-- $\delta_T$ be the degree of theft
-- $P_{\text{report\_success}}$ be the probability of successful report
-- $E_{PS}$ be expected pain and suffering
-- $E_{DI}$ be expected days idle
+* \$C\$ be the cost of being idle (`self.cost`)
+* \$P\_{\text{min}}\$, \$P\_{\text{max}}\$ be the min/max daily pay
+* \$M\$ be the employer's markup (`self.Markup`)
+* \$\delta\_T\$ be the degree of theft
+* \$P\_{\text{report\_success}}\$ be the probability of successful report
+* \$E\_{PS}\$ be expected pain and suffering
+* \$E\_{DI}\$ be expected days idle
 
 #### Action: `"no_offer"` (from `"idle"`)
 
@@ -121,7 +125,7 @@ $$
 
 #### Action: `"steal"` (from `"working"`)
 
-Let $P_{\text{daily}} \sim U(P_{\text{min}}, P_{\text{max}})$.
+Let \$P\_{\text{daily}} \sim U(P\_{\text{min}}, P\_{\text{max}})\$.
 
 $$
 r_1 = P_{\text{daily}} \cdot (1 - \delta_T) - C \\
@@ -130,7 +134,7 @@ $$
 
 #### Action: `"no_steal"` (from `"working"`)
 
-Let $P_{\text{daily}} \sim U(P_{\text{min}}, P_{\text{max}})$.
+Let \$P\_{\text{daily}} \sim U(P\_{\text{min}}, P\_{\text{max}})\$.
 
 $$
 r_1 = P_{\text{daily}} - C \\
@@ -139,9 +143,9 @@ $$
 
 #### Action: `"report"` (from `"stolen"`)
 
-Let $P_{\text{daily}} \sim U(P_{\text{min}}, P_{\text{max}})$.
+Let \$P\_{\text{daily}} \sim U(P\_{\text{min}}, P\_{\text{max}})\$.
 
-If $\text{rand}() \le P_{\text{report\_success}}$:
+If \$\text{rand}() \le P\_{\text{report\_success}}\$:
 
 $$
 r_1 = (P_{\text{daily}} \cdot \delta_T) + E_{PS} \\
@@ -166,7 +170,7 @@ $$
 
 ## Single-Agent Environment Rewards (`step`)
 
-Let $P_{\text{theft}}$ be the probability of theft.
+Let \$P\_{\text{theft}}\$ be the probability of theft.
 
 ### Action: `"noAction"` (from `"idle"`)
 
@@ -182,23 +186,23 @@ $$
 
 ### Action: `"accept"` (from `"idle"`)
 
-Let $P_{\text{daily}} \sim U(P_{\text{min}}, P_{\text{max}})$.
+Let \$P\_{\text{daily}} \sim U(P\_{\text{min}}, P\_{\text{max}})\$.
 
-If $\text{rand}() \le P_{\text{theft}}$:
+If \$\text{rand}() \le P\_{\text{theft}}\$:
 
-- Next State = `"workingTheft"`
-- $$r = P_{\text{daily}} \cdot (1 - \delta_T) - C$$
+* Next State = `"workingTheft"`
+* $r = P_{\text{daily}} \cdot (1 - \delta_T) - C$
 
 Else:
 
-- Next State = `"workingFair"`
-- $$r = P_{\text{daily}} - C$$
+* Next State = `"workingFair"`
+* $r = P_{\text{daily}} - C$
 
 ### Action: `"report"` (from `"workingTheft"`)
 
-Let $P_{\text{daily}} \sim U(P_{\text{min}}, P_{\text{max}})$.
+Let \$P\_{\text{daily}} \sim U(P\_{\text{min}}, P\_{\text{max}})\$.
 
-If $\text{rand}() \le P_{\text{report\_success}}$:
+If \$\text{rand}() \le P\_{\text{report\_success}}\$:
 
 $$
 r = (P_{\text{daily}} \cdot \delta_T) + E_{PS}
@@ -220,7 +224,7 @@ $$
 
 ## Reinforcement Learning Algorithms
 
-Let $Q(s, a)$ be the Q-value for taking action $a$ in state $s$, $r$ the immediate reward, $s'$ the next state, $\alpha$ the learning rate, and $\gamma$ the discount factor.
+Let \$Q(s, a)\$ be the Q-value for taking action \$a\$ in state \$s\$, \$r\$ the immediate reward, \$s'\$ the next state, \$\alpha\$ the learning rate, and \$\gamma\$ the discount factor.
 
 ### Single-Agent Q-Learning (`reinforcement_learning`)
 
@@ -232,9 +236,9 @@ $$
 
 ### Multi-Agent Q-Learning (`reinforcement_learning_combined`)
 
-Two Q-functions are maintained: $Q_1(s, a)$ for the Laborer and $Q_2(s, a)$ for the Employer.
+Two Q-functions are maintained: \$Q\_1(s, a)\$ for the Laborer and \$Q\_2(s, a)\$ for the Employer.
 
-Let $r_1$, $r_2$ be rewards for Laborer and Employer.
+Let \$r\_1\$, \$r\_2\$ be rewards for Laborer and Employer.
 
 #### Case 1: Employer's policy determines next action
 
@@ -254,7 +258,7 @@ Q_1(s, a) \leftarrow Q_1(s, a) + \alpha \left[r_1 + \gamma \max_{a'} Q_1(s', a')
 Q_2(s, a) \leftarrow Q_2(s, a) + \alpha \left[r_2 + \gamma Q_2(s', \arg\max_{a''} Q_1(s', a'')) - Q_2(s, a)\right]
 $$
 
-If no feasible actions from $s'$:
+If no feasible actions from \$s'\$, use:
 
 $$
 \gamma \max_{a'} Q(s', a') = 0
@@ -262,7 +266,7 @@ $$
 
 ### Epsilon-Greedy Policy
 
-Action $a$ from state $s$ is selected via:
+Action \$a\$ from state \$s\$ is selected via:
 
 $$
 a =
@@ -274,9 +278,9 @@ $$
 
 Where:
 
-- $\mathcal{A}(s)$ is the set of feasible actions in $s$
-- $R \sim U(0,1)$
-- $\epsilon$ is the exploration rate
+* \$\mathcal{A}(s)\$ is the set of feasible actions in \$s\$
+* \$R \sim U(0,1)\$
+* \$\epsilon\$ is the exploration rate
 
 ### Learning Rate and Exploration Decay
 
@@ -299,10 +303,10 @@ $$
 
 Where:
 
-- $\bar{Q}$: mean of original Q-values
-- $N_{\text{boot}}$: number of bootstrap samples
-- $\bar{Q}_i$: mean of $i$-th sample
-- $\bar{\bar{Q}}$: mean of all $\bar{Q}_i$
+* \$\bar{Q}\$: mean of original Q-values
+* \$N\_{\text{boot}}\$: number of bootstrap samples
+* \$\bar{Q}\_i\$: mean of \$i\$-th sample
+* \$\bar{\bar{Q}}\$: mean of all \$\bar{Q}\_i\$
 
 95% confidence interval:
 
@@ -312,28 +316,27 @@ $$
 
 ### Convergence Metrics
 
-Sliding window of size $W$:
+Sliding window of size \$W\$:
 
-- **Mean Absolute Change**:
+* **Mean Absolute Change**:
 
-$$
-\text{MeanChange}_t = \frac{1}{W} \sum_{k=t}^{t+W-1} |Q_k(s, a) - Q_{k-1}(s, a)| < \tau_{\text{mean}}
-$$
+  $$
+  \text{MeanChange}_t = \frac{1}{W} \sum_{k=t}^{t+W-1} |Q_k(s, a) - Q_{k-1}(s, a)| < \tau_{\text{mean}}
+  $$
 
-- **Variance of Change**:
+* **Variance of Change**:
 
-$$
-\text{VarChange}_t = \text{Var}(\{|Q_k(s, a) - Q_{k-1}(s, a)|\}_{k=t}^{t+W-1}) < \tau_{\text{var}}
-$$
+  $$
+  \text{VarChange}_t = \text{Var}(\{|Q_k(s, a) - Q_{k-1}(s, a)|\}_{k=t}^{t+W-1}) < \tau_{\text{var}}
+  $$
 
-- **Percentage Stable**:
+* **Percentage Stable**:
 
-$$
-\text{PercStable}_t = \frac{\sum_{k=t}^{t+W-1} \mathbb{I}(|Q_k(s, a) - Q_{k-1}(s, a)| < \tau_{\text{stable}})}{W} > 0.95
-$$
+  $$
+  \text{PercStable}_t = \frac{\sum_{k=t}^{t+W-1} \mathbb{I}(|Q_k(s, a) - Q_{k-1}(s, a)| < \tau_{\text{stable}})}{W} > 0.95
+  $$
 
-Where $\mathbb{I}(\cdot)$ is the indicator function.
-
+Where \$\mathbb{I}(\cdot)\$ is the indicator function.
 
 ---
 
