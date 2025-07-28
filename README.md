@@ -319,22 +319,21 @@ $$
 Sliding window of size \$W\$:
 
 * **Mean Absolute Change**:
-
-  $$
-  \text{MeanChange}_t = \frac{1}{W} \sum_{k=t}^{t+W-1} |Q_k(s, a) - Q_{k-1}(s, a)| < \tau_{\text{mean}}
-  $$
+$$
+\text{MeanChange}_t = \frac{1}{W} \sum_{k=t}^{t+W-1} |Q_k(s, a) - Q_{k-1}(s, a)| < \tau_{\text{mean}}
+$$
 
 * **Variance of Change**:
 
-  $$
-  \text{VarChange}_t = \text{Var}(\{|Q_k(s, a) - Q_{k-1}(s, a)|\}_{k=t}^{t+W-1}) < \tau_{\text{var}}
-  $$
+$$
+\text{VarChange}_t = \text{Var}(\{|Q_k(s, a) - Q_{k-1}(s, a)|\}_{k=t}^{t+W-1})< \tau_{\text{var}}
+$$
 
 * **Percentage Stable**:
 
-  $$
-  \text{PercStable}_t = \frac{\sum_{k=t}^{t+W-1} \mathbb{I}(|Q_k(s, a) - Q_{k-1}(s, a)| < \tau_{\text{stable}})}{W} > 0.95
-  $$
+$$
+\text{PercStable}_t = \frac{\sum_{k=t}^{t+W-1} \mathbb{I}(|Q_k(s, a) - Q_{k-1}(s, a)| < \tau_{\text{stable}})}{W} > 0.95
+$$
 
 Where \$\mathbb{I}(\cdot)\$ is the indicator function.
 
